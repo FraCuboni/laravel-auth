@@ -34,13 +34,18 @@
                         <tbody>
                           <tr>
                             <td scope='row'>{{$post->id}}</td>
-                            <td>mari</td>
-                            <td>mari</td>
-                            <td>mari</td>
-                            <td>mari</td>
-                            <td>mari</td>
-                            <td>mari</td>
-                            <td>actions</td>
+                            <td>{{$post->title}}</td>
+                            <td>{{$post->subject}}</td>
+                            <td>{{$post->start_date}}</td>
+                            <td>{{$post->end_date}}</td>
+                            <td>{{$post->number_of_posts}}</td>
+                            <td>{{$post->collaborators}}</td>
+                            <td>
+                              <button type="button" class="btn btn-primary">Primary</button>
+                              <button type="button" class="btn btn-warning">Warning</button>
+                              <button type="button" class="btn btn-danger">Danger</button>
+                            </td>
+
                           </tr>
                         </tbody>
                             
