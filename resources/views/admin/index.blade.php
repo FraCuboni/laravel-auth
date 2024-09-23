@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">ADMINPAGE :P</div>
+                <div class="card-header">ADMINPAGE</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,35 @@
                     </div>
                     @endif
 
-                    <h1>SEI NELLA PAGINA ADMIN WOAH</h1>
+                    <table class="table">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">title</th>
+                            <th scope="col">text</th>
+                            <th scope="col">start date</th>
+                            <th scope="col">end date</th>
+                            <th scope="col">posts number</th>
+                            <th scope="col">collaborators</th>
+                            <th scope="col">actions</th>
+                          </tr>
+                        </thead>
+                        @foreach ($posts as $post)
+                        <tbody>
+                          <tr>
+                            <td scope='row'>{{$post->id}}</td>
+                            <td>mari</td>
+                            <td>mari</td>
+                            <td>mari</td>
+                            <td>mari</td>
+                            <td>mari</td>
+                            <td>mari</td>
+                            <td>actions</td>
+                          </tr>
+                        </tbody>
+                            
+                        @endforeach
+                      </table>
                 </div>
             </div>
         </div>
