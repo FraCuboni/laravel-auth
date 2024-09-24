@@ -20,6 +20,12 @@
 
                 </div>
 
+                @if (session('deleted'))
+                    <div class="alert alert-info d-flex justify-content-center" role="alert">
+                        {{session('deleted')}}
+                    </div>
+                @endif
+
                 <table class="table"> 
                   <thead class="thead-light">
                     <tr>
@@ -50,7 +56,7 @@
                         <a href="{{ route('admin.posts.edit', $post->id) }}">
                           <button type="button" class="btn btn-warning mb-1"><i class="fa-solid fa-pen"></i></button>
                         </a>
-                        <button type="button" class="btn btn-danger mb-1"><i class="fa-solid fa-trash-can"></i></button>
+                        @include('admin.partials.formdelete')
                       </td>
 
                     </tr>
