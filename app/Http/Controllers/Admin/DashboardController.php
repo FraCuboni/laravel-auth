@@ -10,10 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
 
-        return view('admin.index', [
-            'posts' => $posts,
-        ]);
+        return view('admin.index');
     }
 }

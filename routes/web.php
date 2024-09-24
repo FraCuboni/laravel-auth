@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 
-        Route::resource(name: 'posts', controller: PostController::class);
+        Route::resource('posts', PostController::class);
     });
 
 

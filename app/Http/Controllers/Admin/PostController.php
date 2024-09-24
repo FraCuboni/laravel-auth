@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('admin.index', [
+        return view('admin.posts.index', [
             'posts' => $posts,
         ]);
     }
@@ -25,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $post = Post::all();
+        return view('admin.posts.create', compact('post'));
     }
 
     /**
@@ -33,8 +35,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Log::debug("data", $data);
+        // creo dato da aggiungere nel db
+        $post = new Post();
+
+        $post->fill($data);
+        // assegno valori al dato
+        // $comic->title = $data['title'];
+        // $comic->series = $data['series'];
+        // $comic->description = $data['description'];
+        // $comic->price = $data['price'];
+        // $comic->img = $data['img'];
+
+        // salvo
+        $post->save();
+        return redirect()->route('admin.posts.index');
     }
+
 
     /**
      * Display the specified resource.

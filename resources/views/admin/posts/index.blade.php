@@ -10,10 +10,14 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                   <h2>Posts</h2>
-                  <button type="button" class="btn btn-success mb-1">
-                    <i class="fa-solid fa-pen"></i>
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
+
+                  <a href="{{ route('admin.posts.create') }}">
+                    <button type="button" class="btn btn-success mb-1">
+                      <i class="fa-solid fa-pen"></i>
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </a>
+
                 </div>
 
                 <table class="table"> 

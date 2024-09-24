@@ -1,57 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>
-        CREATE POST
-    </h1>
-    
-<div class="container-fluid">
+<div class="container my-4">
+    <h2 class="fs-4 text-secondary my-4">
+    </h2>
     <div class="row justify-content-center">
-        <div class="col-10">
-            <form action="{{ route('admin.posts.update', $post) }}" method="POST">
-            @csrf
-
-            {{-- Forzo il metod da post a put --}}
-            @method('PUT')
-
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" placeholder="title" value="{{$post->title}}">
-                    
+        <div class="col">
+              
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                  <h2>Post create #</h2>
+                  <button type="button" class="btn btn-success mb-1">
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="description">subject</label>
-                    <textarea type="text" class="form-control" id="subject" name="subject" placeholder="subject">{{$post->subject}}</textarea>
-                    
-                </div>
+            <form action="{{ route('admin.posts.store') }}" method="POST">
+            @csrf 
 
-                <div class="form-group">
-                    <label for="price">start_date</label>
-                    <input type="text" class="form-control" id="start_date" name="start_date" placeholder="start_date"  value="{{$post->start_date}}">
-                    
-                </div>
+                <ul class="list-group list-group-flush">
 
-                <div class="form-group">
-                    <label for="img">end_date</label>
-                    <input type="text" class="form-control" id="end_date" name="end_date" placeholder="img end_date"  value="{{$post->end_date}}">
-                    
-                </div>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="title"><h5>title</h5></label>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="title">
+                        </div>
+                    </li>
 
-                <div class="form-group">
-                    <label for="price">start_date</label>
-                    <input type="text" class="form-control" id="number_of_posts" name="number_of_posts" placeholder="number_of_posts"  value="{{$post->number_of_posts}}">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="subject"><h5>subject</h5></label>
+                            <textarea type="text" class="form-control" id="subject" name="subject" placeholder="subject"></textarea>
+                        </div>
+                    </li>
                     
-                </div>
-
-                <div class="form-group">
-                    <label for="img">end_date</label>
-                    <input type="text" class="form-control" id="collaborators" name="collaborators" placeholder="collaborators"  value="{{$post->collaborators}}">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="start_date"><h5>start date</h5></label>
+                            <input type="text" class="form-control" id="start_date" name="start_date" placeholder="start_date">
+                        </div>
+                    </li>
                     
-                </div>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="end_date"><h5>end date</h5></label>
+                            <input type="text" class="form-control" id="end_date" name="end_date" placeholder="img end_date">                   
+                        </div>
+                    </li>
+                    
+                    <li class="list-group-item">
+                        <div class="form-group"><h5>number of posts</h5></label>
+                            <input type="text" class="form-control" id="number_of_posts" name="number_of_posts" placeholder="number_of_posts">
+                        </div>
+                    </li>
+                    
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="collaborators"><h5>collaborators</h5></label>
+                            <input type="text" class="form-control" id="collaborators" name="collaborators" placeholder="collaborators">
+                        </div>
+                    </li>
+                    
+                    <li class="list-group-item">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-danger">Delete</button>
+                    </li>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-danger">Delete</button>
+                </ul>
 
             </form>        
         </div>
