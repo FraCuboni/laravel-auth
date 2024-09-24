@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -10,7 +11,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index()
+    {
+        $posts = Post::all();
+
+        return view('admin.index', [
+            'posts' => $posts,
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +50,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Guest\PageController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Post;
@@ -33,8 +33,10 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+
+        Route::resource(name: 'posts', controller: PostController::class);
     });
 
-Route::resource('posts', PostController::class);
 
 require __DIR__ . '/auth.php';
